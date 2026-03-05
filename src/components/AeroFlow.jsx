@@ -640,7 +640,7 @@ const FlightSearch = ({ onNavigate, onFlightSelect }) => {
       {/* Search Form */}
       <Card style={{ padding: 28, marginBottom: 24 }}>
         <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 20, marginBottom: 20 }}>✈️ Search Flights</div>
-        
+
         {/* Trip Type */}
         <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
           {["roundtrip", "oneway", "multicity"].map(t => (
@@ -655,7 +655,7 @@ const FlightSearch = ({ onNavigate, onFlightSelect }) => {
           <Input label="From" placeholder="Origin city" value={from} onChange={setFrom} icon="🛫" />
           <Input label="To" placeholder="Destination" value={to} onChange={setTo} icon="🛬" />
           <Input label="Date" type="date" value={date} onChange={setDate} />
-          <Select label="Passengers" options={["1","2","3","4","5","6"].map(n => ({ value: n, label: `${n} Passenger${n > 1 ? "s" : ""}` }))} value={passengers} onChange={setPassengers} />
+          <Select label="Passengers" options={["1", "2", "3", "4", "5", "6"].map(n => ({ value: n, label: `${n} Passenger${n > 1 ? "s" : ""}` }))} value={passengers} onChange={setPassengers} />
           <Select label="Class" options={[{ value: "economy", label: "Economy" }, { value: "business", label: "Business" }, { value: "first", label: "First" }]} value={classType} onChange={setClassType} />
         </div>
         <div style={{ marginTop: 20, display: "flex", justifyContent: "flex-end" }}>
@@ -678,7 +678,7 @@ const FlightSearch = ({ onNavigate, onFlightSelect }) => {
           {/* Filters */}
           <Card style={{ padding: 20, height: "fit-content", position: "sticky", top: 90 }}>
             <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, marginBottom: 20 }}>🎚 Filters</div>
-            
+
             <div style={{ marginBottom: 20 }}>
               <div style={{ fontSize: 13, fontWeight: 600, color: theme.textMid, marginBottom: 12 }}>Sort By</div>
               {["price", "duration", "rating"].map(s => (
@@ -1343,13 +1343,13 @@ const ProfilePage = ({ onNavigate, role }) => {
               {!editMode && <Btn variant="outline" size="sm" icon="✏️" onClick={() => setEditMode(true)}>Edit</Btn>}
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 28 }}>
-              <Input label="First Name" value="Arun" onChange={() => {}} />
-              <Input label="Last Name" value="Kumar" onChange={() => {}} />
-              <Input label="Email Address" value="arun@aeroflow.ai" type="email" icon="✉️" onChange={() => {}} />
-              <Input label="Phone Number" value="+91 98765 43210" icon="📱" onChange={() => {}} />
-              <Input label="Date of Birth" value="1990-06-15" type="date" onChange={() => {}} />
+              <Input label="First Name" value="Arun" onChange={() => { }} />
+              <Input label="Last Name" value="Kumar" onChange={() => { }} />
+              <Input label="Email Address" value="arun@aeroflow.ai" type="email" icon="✉️" onChange={() => { }} />
+              <Input label="Phone Number" value="+91 98765 43210" icon="📱" onChange={() => { }} />
+              <Input label="Date of Birth" value="1990-06-15" type="date" onChange={() => { }} />
               <Select label="Gender" options={[{ value: "male", label: "Male" }, { value: "female", label: "Female" }, { value: "other", label: "Other" }]} value="male" />
-              <Input label="City" value="Hyderabad" icon="🏙" onChange={() => {}} />
+              <Input label="City" value="Hyderabad" icon="🏙" onChange={() => { }} />
               <Select label="Country" options={[{ value: "IN", label: "🇮🇳 India" }, { value: "AE", label: "🇦🇪 UAE" }, { value: "US", label: "🇺🇸 USA" }]} value="IN" />
             </div>
             <div style={{ paddingTop: 20, borderTop: "1px solid rgba(15,76,138,0.08)", display: "flex", gap: 12 }}>
@@ -2090,11 +2090,11 @@ export default function AeroFlow() {
   return (
     <>
       <style>{globalStyles}</style>
-      <div style={{ display: "flex", minHeight: "100vh", background: theme.light }}>
+      <div style={{ display: "flex", minHeight: "100vh", background: theme.light, width: "100%" }}>
         <Sidebar role={role} currentPage={page} onNavigate={setPage} />
-        <div style={{ marginLeft: 240, flex: 1, display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <div style={{ marginLeft: 240, flex: 1, display: "flex", flexDirection: "column", minHeight: "100vh", width: "calc(100% - 240px)", overflowX: "hidden" }}>
           <TopBar title={title} subtitle={subtitle} role={role} onRoleChange={r => setRole(r)} notifCount={unreadNotifs} onNavigate={setPage} />
-          <main style={{ flex: 1, padding: "28px 32px", maxWidth: 1200, width: "100%" }}>
+          <main style={{ flex: 1, padding: "28px 32px", width: "100%" }}>
             {renderPage()}
           </main>
           <footer style={{ padding: "20px 32px", borderTop: "1px solid rgba(15,76,138,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
